@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Animación 3D</title>
+
+    <style type="text/css">
+        body, html {
+            background: #222;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .view {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            perspective: 800px; /* Aumenté la perspectiva */
+        }
+
+        .plane {
+            width: 200px; /* Aumenté el tamaño del plano */
+            height: 200px;
+            transform-style: preserve-3d;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(60deg) rotateZ(-60deg);
+            animation: rotate 6s infinite linear; /* Hice la rotación más lenta para un efecto más suave */
+        }
+
+        .circle {
+            width: 200px; /* Hice los aros más grandes */
+            height: 200px;
+            position: absolute;
+            transform-style: preserve-3d;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 0, 0, 0.6); /* Agregué un borde para mejor visibilidad */
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), inset 0 0 10px rgba(255, 0, 0, 0.6);
+        }
+
+        .point {
+            position: absolute;
+            width: 20px; /* Tamaño de los puntos */
+            height: 20px;
+            background: rgba(255, 0, 0, 1);
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Para que las palabras sean visibles */
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1);
+        }
+
+        .circle .point:nth-child(1) { transform: rotateZ(0deg) translateX(100px) translateY(0) translateZ(60px); }
+/*        .circle .point:nth-child(2) { transform: rotateZ(72deg) translateX(100px) translateY(0) translateZ(60px); }*/
+        .circle .point:nth-child(3) { transform: rotateZ(144deg) translateX(100px) translateY(0) translateZ(60px); }
+        .circle .point:nth-child(4) { transform: rotateZ(216deg) translateX(100px) translateY(0) translateZ(60px); }
+        /*.circle .point:nth-child(5) { transform: rotateZ(288deg) translateX(100px) translateY(0) translateZ(60px); }*/
+        .circle .point:nth-child(6) { transform: rotateZ(360deg) translateX(100px) translateY(0) translateZ(60px); }
+        .circle .point:nth-child(7) { transform: rotateZ(-300deg) translateX(100px) translateY(0) translateZ(60px); }
+        .circle .point:nth-child(8) { transform: rotateZ(-72deg) translateX(100px) translateY(0) translateZ(60px); }
+        .circle .point:nth-child(9) { transform: rotateZ(-144deg) translateX(100px) translateY(0) translateZ(60px); }
+        .circle .point:nth-child(10) { transform: rotateZ(-216deg) translateX(100px) translateY(0) translateZ(60px); }
+        .circle .point:nth-child(11) { transform: rotateZ(-288deg) translateX(100px) translateY(0) translateZ(60px); }
+        .circle .point:nth-child(12) { transform: rotateZ(-360deg) translateX(100px) translateY(0) translateZ(60px); }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(0) rotateY(0) rotateZ(0);
+            }
+25%{ transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);}
+50%{ transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+75%{ transform: rotateX(-360deg) rotateY(-360deg) rotateZ(-360deg);}
+            100% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="view">
+        <div class="plane main">
+            <!-- Primer círculo -->
+            <div class="circle" style="transform: rotateZ(0deg) rotateX(72deg);">
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <!-- Segundo círculo -->
+            <div class="circle" style="transform: rotateZ(30deg) rotateX(72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>                
+<div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(60deg) rotateX(72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(90deg) rotateX(72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(120deg) rotateX(72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+
+            <div class="circle" style="transform: rotateZ(180deg) rotateX(72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+
+            <div class="circle" style="transform: rotateZ(0deg) rotateX(-72deg);">
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <!-- Segundo círculo -->
+            <div class="circle" style="transform: rotateZ(30deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(60deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(90deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(120deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+
+            <div class="circle" style="transform: rotateZ(180deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+
+            <div class="circle" style="transform: rotateZ(-210deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(-240deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(-270deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(-300deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(-330deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(-360deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+                <div class="point">Sol</div>
+                <div class="point">Luna</div>
+                <div class="point">Marte</div>
+                <div class="point">Venus</div>
+                <div class="point">Júpiter</div>
+                <div class="point">Saturno</div>
+            </div>
+
+
+
+
+
+
+
+            <div class="circle" style="transform: rotateZ(210deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(240deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(270deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(300deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(330deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+            </div>
+            <div class="circle" style="transform: rotateZ(360deg) rotateX(-72deg);">
+                <div class="point">Mercurio</div>
+                <div class="point">Neptuno</div>
+                <div class="point">Plutón</div>
+                <div class="point">Urano</div>
+                <div class="point">Estrella</div>
+                <div class="point">Galaxia</div>
+            </div>
+
+            <!-- Puedes añadir más círculos si lo necesitas -->
+        </div>
+    </div>
+</body>
+</html>
